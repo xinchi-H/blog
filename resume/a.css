@@ -1,7 +1,6 @@
 body{
-  background: black;
-  color: white;
-  margin: 0px
+  margin: 0px;
+  background-color: #efefef;
 }
 .clearfix::after{
   content: '';
@@ -12,7 +11,14 @@ a{
   text-decoration: none
 }
 .topNavBar {
-  padding: 20px 16px
+  padding: 20px 0px;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+}
+.top{
+  padding: 0px 16px;
 }
 .topNavBar .logo{
   padding: 3px 0px 4px 0px;
@@ -27,22 +33,22 @@ a{
 .topNavBar .logo .card {
   color: #9A9DA2;
 }
-.topNavBar>nav{
+.topNavBar nav{
   float: right;
   padding-top: 7px;
 }
-.topNavBar>nav>ul{
+.topNavBar nav>ul{
   margin: 0px;
   padding: 0px;
 }
-.topNavBar>nav>ul>li{
+.topNavBar nav>ul>li{
   list-style: none;
   margin-left: 17px;
   margin-right: 17px;
   font-weight: bold;
   float: left;
 }
-.topNavBar>nav>ul>li>a{
+.topNavBar nav>ul>li>a{
   color: #b7b7b7;
   border-bottom: 3px solid transparent;
   border-top: 3px solid transparent;
@@ -52,4 +58,37 @@ a{
 }
 .topNavBar nav ul>li>a:hover{
   border-bottom: 3px solid #DC6465;
+}
+.banner{
+  height: 515px;
+  background-position: center center;
+  background-size: cover;
+}
+.banner .mask{
+  height: 515px;
+  background: rgba(0,0,0,0.8);
+}
+.usercard{
+  border: 1px solid #E6686A;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+}
+.usercard .welcome{
+  background-color: #e6686a;
+  color: white;
+  display: inline-block;
+  padding: 4px 16px;
+  position: relative;
+}
+.usercard .welcome .triangle{
+  display: block;
+  border: 10px solid transparent;
+  border-left-color: #e6686a;
+  width: 0px;
+  border-top-width: 0px;
+  position: absolute;
+  top: 100%;
+  left: 4px;
 }
