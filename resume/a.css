@@ -82,6 +82,7 @@ hr{
   margin-left: auto;
   margin-right: auto;
   background-color: #fff;
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);
 }
 .usercard .welcome{
   background-color: #e6686a;
@@ -147,4 +148,136 @@ hr{
 }
 .usercard>footer.media>a:hover{
   background-color: #cf5d5f;
+}
+body>main{
+  margin-top: -340px;
+}
+main>.downloadResumeP>.downloadResume{
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #cdcfd1;
+  padding: 21px 55px;
+  margin: 32px 0px;
+  display: inline-block;
+  text-align: center;
+  line-height: 16px;
+  color: #3d4451;
+  border-radius: 2px;
+  transition: box-shadow 0.3s;
+}
+main>.downloadResumeP>.downloadResume:hover{
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);}
+main>.downloadResumeP{
+  text-align: center;
+  display: block;
+}
+main>.selfintroduction{
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.8;
+  font-family: KaiTi;
+  font-size: 22px;
+}
+.skills,
+.portfolio{
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+.skills>ol{
+  background-color: white;
+  list-style: none;
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);
+  padding: 42px 50px 10px;
+  margin: 30px 0;
+}
+.skills>ol>li{
+  float: left;
+  width: 47%;
+}
+.skills>h2,
+.portfolio>h2{
+  text-align: center;
+  color: #3d4451;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+.skills h3{
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.1;
+  padding-right: 40px;
+}
+.skills .progressBar{
+  height: 5px;
+  background: #fae1e1;
+  border-radius: 2px;
+  margin: 4px 0 40px;
+}
+.skills .progress{
+  height: 100%;
+  background: #e6686a;
+  border-radius: 2px;
+}
+.skills > ol > li:nth-child(even){
+  float: right;
+}
+.portfolio{
+  text-align: center;
+  margin-bottom: 100px;
+}
+.portfolio > nav{
+  margin-top: 32px;
+  display: inline-block;
+  vertical-align: top;
+}
+.portfolio > nav > ol{
+  list-style: none;
+  display: inline-block;
+  vertical-align: top;
+}
+.portfolio > nav > ol > li{
+  float: left;
+  margin-left: 40px;
+  cursor: pointer;
+} 
+.portfolio > nav > ol > li:nth-child(1){
+  margin-left: 0;
+}
+.portfolio > nav > .bar{
+  margin: 5px 0 28px 0;
+  height: 5px;
+  background-color: white;
+  border-radius: 2px;
+}
+.portfolio > nav > .bar > .barInner{
+  height: 100%;
+  background-color: #e6686a;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.portfolio > nav > .bar.state-1 .barInner{
+  margin-left: 0;
+  width: 32px;
+}
+.portfolio > nav > .bar.state-2 .barInner{
+  margin-left: 71px;
+  width: 33px;
+}
+.portfolio > nav > .bar.state-3 .barInner{
+  margin-left: 143px;
+  width: 92px;
+}
+.portfolio .jobs{
+  position: relative;
+}
+.portfolio .jobs > .big,
+.portfolio .jobs > .small{
+  position: absolute;
 }
