@@ -9,7 +9,6 @@
     .loading {
       width: 200px;
       height: 200px;
-      border: 1px solid red;
       position: relative;
     }
 
@@ -240,8 +239,11 @@
       </div>
     </div>
   </section>
-  <script>Loading.classList.remove('active')</script>
-
+  <script>
+    setTimeout(function () {
+      Loading.classList.remove('active')
+    }, 1500)
+  </script>
 </body>
 
 </html>
