@@ -82,12 +82,24 @@
       <a class="logo" href="#" alt="logo" style="float: left; ">
         <span class="rs">XC</span><span class="card">card</span>
       </a>
-      <nav>
+      <nav class="menu">
         <ul class="clearfix">
           <li><a href="#">关于</a></li>
           <li><a href="#">技能</a></li>
-          <li><a href="#">作品</a></li>
-          <li><a href="#">博客</a></li>
+          <li><a href="#">作品</a>
+          <ul class="submenu">
+              <li style="list-style-type:none">作品1</li>
+              <li style="list-style-type:none">作品2</li>
+              <li style="list-style-type:none">作品3</li>
+            </ul>
+          </li>
+          <li><a href="#">博客</a>
+            <ul class="submenu">
+              <li style="list-style-type:none">博客1</li>
+              <li style="list-style-type:none">博客2</li>
+              <li style="list-style-type:none">博客3</li>
+            </ul>
+          </li>
           <li><a href="#">日历</a></li>
           <li><a href="#">联系方式</a></li>
           <li><a href="#">其他</a></li>
@@ -249,6 +261,18 @@
         topNavBar.classList.add('sticky')
       } else {
         topNavBar.classList.remove('sticky')
+      }
+    }
+
+    let liTags = document.querySelectorAll('nav.menu > ul > li')
+    for (let i = 0; i < liTags.length; i++) {
+      liTags[i].onmouseenter = function (x) {
+        let li = x.currentTarget
+        li.classList.add('active')
+      }
+      liTags[i].onmouseleave = function (x) {
+        let li = x.currentTarget
+        li.classList.remove('active')
       }
     }
   </script>
