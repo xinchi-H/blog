@@ -77,7 +77,7 @@
   <div id="Loading" class="Loading active">
     <div class="loading"></div>
   </div>
-  <div class="topNavBar">
+  <div id="topNavBar" class="topNavBar">
     <div class="top clearfix">
       <a class="logo" href="#" alt="logo" style="float: left; ">
         <span class="rs">XC</span><span class="card">card</span>
@@ -243,6 +243,14 @@
     setTimeout(function () {
       Loading.classList.remove('active')
     }, 1500)
+
+    window.onscroll = function (xxxxx) {
+      if (window.scrollY > 0) {
+        topNavBar.classList.add('sticky')
+      } else {
+        topNavBar.classList.remove('sticky')
+      }
+    }
   </script>
 </body>
 
