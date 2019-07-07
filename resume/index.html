@@ -256,7 +256,15 @@
     //Loading动画结束
     setTimeout(function () {
       Loading.classList.remove('active')
-    }, 1500)
+    }, 1000)
+
+
+    //给data-x添加offset类
+    let specialTags = document.querySelectorAll('[data-x]')
+    for (let i = 0; i < specialTags.length; i++) {
+      specialTags[i].classList.add('offset')
+    }
+    setTimeout(function () { findClosest() }, 1000);
 
     //固定导航栏
     window.onscroll = function (xxxxx) {
@@ -265,6 +273,9 @@
       } else {
         topNavBar.classList.remove('sticky')
       }
+      findClosest()
+    }
+    function findClosest() {
       //根据页面位置高亮导航栏
       let specialTags = document.querySelectorAll('[data-x]')
       let minIndex = 0
@@ -273,14 +284,15 @@
           minIndex = i
         }
       }
+      specialTags[minIndex].classList.remove('offset')//离窗口顶部最近的元素移除offset
       let id = specialTags[minIndex].id
       let a = document.querySelector('a[href="#' + id + '"]')
       let li = a.parentNode
       let brothersAndMe = li.parentNode.children
       for (let i = 0; i < brothersAndMe.length; i++) {
-        brothersAndMe[i].classList.remove('heighLight')
+        brothersAndMe[i].classList.remove('highLight')
       }
-      li.classList.add('heighLight')
+      li.classList.add('highLight')
     }
 
     //选择导航栏时的动画
