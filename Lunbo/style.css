@@ -1,0 +1,12 @@
+.window{
+    width: 480px;
+    overflow: hidden;
+}
+.images{
+    display: flex;
+    align-items: flex-start;
+    transition: all .75s;
+}
+.red{
+    color: crimson;
+}
