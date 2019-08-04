@@ -1,5 +1,10 @@
 $(clickMe).on('click', function (e) {
-    $(popover).show()
+    if ($("#popover").is(":hidden")) {
+        $(popover).show()
+    } else {
+        $(popover).hide()
+    }
+
     setTimeout(function () {
         $(document).one('click', function () {
             $(popover).hide()
