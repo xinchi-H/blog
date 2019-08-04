@@ -1,0 +1,36 @@
+.wrapper{
+    display: inline-block;
+    position: relative;
+}
+.clickMe{
+    padding: 15px;
+}
+.popover{
+    position: absolute;
+    border: 1px solid  black;
+    border-radius: 8px;
+    left: 100%;
+    top:0;
+    white-space: nowrap;
+    padding: 10px;
+    margin-left: 8px;
+    background: skyblue;
+    display: none;
+}
+.popover::before{
+    position: absolute;
+    right: 100%;
+    top: 5px;
+    border: 8px solid transparent;
+    border-right-color: black;
+    content: '';
+  }
+  .popover::after{
+    position: absolute;
+    right: 100%;
+    top: 5px;
+    border: 8px solid transparent;
+    border-right-color: skyblue;
+    content: '';
+    margin-right: -1.5px;
+  }
