@@ -1,6 +1,6 @@
 let n
 初始化()
-setInterval(() => {
+let timer = setInterval(() => {
     makeLeave(getImage(n))
         .one('transitionend', (e) => {
             makeEnter($(e.currentTarget))
@@ -9,7 +9,22 @@ setInterval(() => {
     n += 1
 }, 3000)
 
-
+document.addEventListener('visibilitychange', function (e) {
+    if (document.hidden) {
+        console.log('hidden')
+        window.clearInterval(timer)
+    } else {
+        console.log('active')
+        timer = setInterval(() => {
+            makeLeave(getImage(n))
+                .one('transitionend', (e) => {
+                    makeEnter($(e.currentTarget))
+                })
+            makeCurrent(getImage(n + 1))
+            n += 1
+        }, 3000)
+    }
+})
 
 
 /*初始化
