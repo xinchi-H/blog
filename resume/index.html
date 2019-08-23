@@ -4,73 +4,8 @@
 <head>
   <title>鑫驰的个人简历</title>
   <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.1/css/swiper.min.css">
   <script src="//at.alicdn.com/t/font_1203625_xed247mqe.js"></script>
-  <style type="text/css">
-    .loading {
-      width: 200px;
-      height: 200px;
-      position: relative;
-    }
-
-    .loading::before,
-    .loading::after {
-      content: '';
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: black;
-      border-radius: 50%;
-      top: 0px;
-      left: 0px;
-      bottom: 0px;
-      right: 0px;
-      margin: auto;
-      animation: s 1.5s linear infinite
-    }
-
-    .loading::after {
-      animation-delay: 0.75s;
-    }
-
-    @keyframes s {
-      0% {
-        width: 0;
-        height: 0px;
-        opacity: 1;
-      }
-
-      100% {
-        width: 100px;
-        height: 100px;
-        opacity: 0
-      }
-    }
-
-    .icon {
-      width: 1em;
-      height: 1em;
-      vertical-align: -0.15em;
-      fill: currentColor;
-      overflow: hidden;
-    }
-
-    .Loading {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #888;
-      z-index: 1;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .Loading.active {
-      display: flex;
-    }
-  </style>
 </head>
 
 <body>
@@ -218,7 +153,33 @@
   </section>
   <section data-x id="siteWorks" class="portfolio">
     <h2>作品集</h2>
-    <nav>
+    <!-- Slider main container -->
+    <div class="swiper-container">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <img class="swiper-slide" src="/nav.jpg" alt="nav">
+        <img class="swiper-slide" src="/slide.jpg" alt="slide">
+        <img class="swiper-slide" src="/canvas.jpg" alt="canvas">
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+    <div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.4.0/Tween.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.1/js/swiper.min.js"></script>
+  <script src="/1.js"></script>
+</body>
+
+</html>
+
+<!--    
+      <nav>
       <ol class="clearfix">
         <li id="portfolio1">所有</li>
         <li id="portfolio2">框架</li>
@@ -227,123 +188,15 @@
       <div id="portfolioBar" class="bar state-1">
         <div class="barInner"></div>
       </div>
-    </nav>
-    <script>
-      portfolio1.onclick = function () {
-        portfolioBar.className = 'bar state-1'
-      }
-      portfolio2.onclick = function () {
-        portfolioBar.className = 'bar state-2'
-      }
-      portfolio3.onclick = function () {
-        portfolioBar.className = 'bar state-3'
-      }
-    </script>
-    <div class="jobs" style=" height: 597px">
-      <div class="big" style="top: 0;left: 0;">
-        <img src="./1.jpg" alt="作品1">
-      </div>
-      <div class="small" style="top: 0;left: 645px;">
-        <img src="./2.jpg" alt="作品2">
-      </div>
-      <div class="small" style="top: 312px;left: 645px;">
-        <img src="./3.jpg" alt="作品3">
-      </div>
-    </div>
-  </section>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.4.0/Tween.min.js"></script>
-  <script>
-    //Loading动画结束
-    setTimeout(function () {
-      Loading.classList.remove('active')
-    }, 1000)
-
-
-    //给data-x添加offset类
-    let specialTags = document.querySelectorAll('[data-x]')
-    for (let i = 0; i < specialTags.length; i++) {
-      specialTags[i].classList.add('offset')
-    }
-    setTimeout(function () { findClosest() }, 1000);
-
-    //固定导航栏
-    window.onscroll = function (xxxxx) {
-      if (window.scrollY > 0) {
-        topNavBar.classList.add('sticky')
-      } else {
-        topNavBar.classList.remove('sticky')
-      }
-      findClosest()
-    }
-    function findClosest() {
-      //根据页面位置高亮导航栏
-      let specialTags = document.querySelectorAll('[data-x]')
-      let minIndex = 0
-      for (let i = 1; i < specialTags.length; i++) {
-        if (Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)) {
-          minIndex = i
-        }
-      }
-      specialTags[minIndex].classList.remove('offset')//离窗口顶部最近的元素移除offset
-      let id = specialTags[minIndex].id
-      let a = document.querySelector('a[href="#' + id + '"]')
-      let li = a.parentNode
-      let brothersAndMe = li.parentNode.children
-      for (let i = 0; i < brothersAndMe.length; i++) {
-        brothersAndMe[i].classList.remove('highLight')
-      }
-      li.classList.add('highLight')
-    }
-
-    //选择导航栏时的动画
-    let liTags = document.querySelectorAll('nav.menu > ul > li')
-    for (let i = 0; i < liTags.length; i++) {
-      liTags[i].onmouseenter = function (x) {
-        let li = x.currentTarget
-        li.classList.add('active')
-      }
-      liTags[i].onmouseleave = function (x) {
-        let li = x.currentTarget
-        li.classList.remove('active')
-      }
-    }
-
-    //页面跳转动画
-    // Setup the animation loop.
-    function animate(time) {
-      requestAnimationFrame(animate);
-      TWEEN.update(time);
-    }
-    requestAnimationFrame(animate);
-
-    let aTags = document.querySelectorAll('nav.menu > ul > li > a')
-    for (let i = 0; i < aTags.length; i++) {
-      aTags[i].onclick = function (x) {
-        x.preventDefault()
-        let a = x.currentTarget
-        let href = a.getAttribute('href')
-        let element = document.querySelector(href)
-        let top = element.offsetTop
-        //上面四句可以合并为let top = document.querySelector(x.currentTarget.getAttribute('href')).offsetTOP
-        let currentTop = window.scrollY
-        let targetTop = top - 80
-        let s = targetTop - currentTop
-        var t = Math.abs((s / 100) * 300)
-        if (t > 500) { t = 500 }
-        var coords = { y: currentTop };
-        var tween = new TWEEN.Tween(coords)
-          .to({ y: targetTop }, t) // Move to (300, 200) in 1 second.
-          .easing(TWEEN.Easing.Quadratic.InOut)
-          .onUpdate(() => {
-            window.scrollTo(0, coords.y)
-          })
-          .start();
-        //window.scrollTo(0, top - 80)
-      }
-    }
-
-
-  </script>
-</body>
-
-</html>
+    </nav>         
+<div class="jobs" style=" height: 597px">
+  <div class="big" style="top: 0;left: 0;">
+    <img src="./1.jpg" alt="作品1">
+  </div>
+  <div class="small" style="top: 0;left: 645px;">
+    <img src="./2.jpg" alt="作品2">
+  </div>
+  <div class="small" style="top: 312px;left: 645px;">
+    <img src="./3.jpg" alt="作品3">
+  </div>
+</div>-->
