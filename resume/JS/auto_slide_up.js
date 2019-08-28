@@ -1,5 +1,4 @@
 !function () {
-
     //给data-x添加offset类
     let specialTags = document.querySelectorAll('[data-x]')
     for (let i = 0; i < specialTags.length; i++) {

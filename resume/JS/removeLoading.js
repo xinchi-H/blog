@@ -1,22 +1,23 @@
 !function () {
   var view = document.querySelector('#Loading')
-  var controller = function (view) {
-    //Loading动画结束
-    setTimeout(function () {
-      view.classList.remove('active')
-    }, 1000)
+  var controller = {
+    view: null,
+    init: function (view) {
+      this.view = view
+      this.removeLoading()
+    },
+    removeLoading: function () {
+      //Loading动画结束
+      setTimeout((x) => {
+        this.removeClassList()
+        //view.classList.remove('active')
+      }, 1000)
+    },
+    removeClassList: function () {
+      this.view.classList.remove('active')
+    }
   }
-  controller.call(null, view)
+
+  controller.init(view)
+
 }.call()
-
-
-/*
-portfolio1.onclick = function () {
-portfolioBar.className = 'bar state-1'
-}
-portfolio2.onclick = function () {
-portfolioBar.className = 'bar state-2'
-}
-portfolio3.onclick = function () {
-portfolioBar.className = 'bar state-3'
-}*/
