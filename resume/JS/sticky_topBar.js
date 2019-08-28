@@ -1,8 +1,14 @@
-//固定导航栏
-window.addEventListener('scroll',function(x){
-    if (window.scrollY > 0) {
-        topNavBar.classList.add('sticky')
-    } else {
-        topNavBar.classList.remove('sticky')
+!function () {
+    var view = document.querySelector('#topNavBar')
+    var controller = function (view) {
+        //固定导航栏
+        window.addEventListener('scroll', function (x) {
+            if (window.scrollY > 0) {
+                view.classList.add('sticky')
+            } else {
+                view.classList.remove('sticky')
+            }
+        })
     }
-})
+    controller.call(null,view)
+}.call()
