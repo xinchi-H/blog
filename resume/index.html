@@ -175,9 +175,12 @@
   </section>
   <section class="message">
     <h2>留言</h2>
-    <ol id="messageList"></ol>
+    <ol id="messageList" class="messageList"></ol>
     <form id="postMessageForm" class="messageForm">
-      <input type="text" name="content">
+      <label for="">姓名</label>
+      <input type="text" name="name" class="nameInput">
+      <label for="">内容</label>
+      <input type="text" name="content" class="contentInput">
       <input type="submit" value="提交">
     </form>
   </section>

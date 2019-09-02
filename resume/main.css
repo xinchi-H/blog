@@ -67,8 +67,12 @@ main>.selfintroduction{max-width: 940px;margin-left: auto;margin-right: auto;tex
 .skills .progress{height: 100%;background: #e6686a;border-radius: 2px;transform: translateX(0);transition: all 1s;}
 .skills.offset .progress{transform: translateX(-100%);}
 .skills > ol > li:nth-child(even){float: right;}
-.portfolio{text-align: center;margin-bottom: 100px;}
+.portfolio{text-align: center}
 .portfolio .swiper-container{width: 888px;height: 666px;margin-top: 30px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);}
 .portfolio .swiper-button-prev{left: auto;right: 100%;background-color: white;width: 44px;height: 66px;border-radius: 10px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);}
 .portfolio .swiper-button-next{left: 100%;right: auto;background-color: white;width: 44px;height: 66px;border-radius: 10px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);}
-.messageForm{width: 940px;margin: 30px auto;text-align: center;}
+.message .messageList{max-width: 940px;margin: 30px auto;border-top: 1px solid #dedede;}
+.message .messageList li{list-style: none;padding: 16px 26px;border-bottom: 1px solid #dedede;}
+.message .messageForm{width: 940px;margin: 30px auto;text-align: center;}
+.message .messageForm .nameInput {width: 90px;height: 22px;}
+.message .messageForm .contentInput{width: 370px;height: 22px;}
