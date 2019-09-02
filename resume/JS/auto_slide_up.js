@@ -31,6 +31,3 @@
         li.classList.add('highLight')
     }
 }.call()
-
-
-
