@@ -55,17 +55,20 @@ main>.downloadResumeP>.downloadResume:hover{box-shadow: 0px 4px 15px 0px rgba(0,
 main>.downloadResumeP{text-align: center;display: block;}
 main>.selfintroduction{max-width: 940px;margin-left: auto;margin-right: auto;text-align: center;font-weight: bold;line-height: 1.8;font-family: KaiTi;font-size: 22px;}
 .skills,
-.portfolio{max-width: 940px;margin-left: auto;margin-right: auto;margin-top: 60px;}
+  .portfolio,
+    .message{max-width: 940px;margin-left: auto;margin-right: auto;margin-top: 60px;}
 .skills>ol{background-color: white;list-style: none;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);padding: 42px 50px 10px;margin: 30px 0;}
 .skills>ol>li{float: left;width: 47%;}
 .skills>h2,
-.portfolio>h2{text-align: center;color: #3d4451;font-size: 34px;line-height: 1.2;font-weight: 600;}
+  .portfolio>h2,
+    .message>h2{text-align: center;color: #3d4451;font-size: 34px;line-height: 1.2;font-weight: 600;}
 .skills h3{font-weight: normal;font-size: 14px;line-height: 1.1;padding-right: 40px;}
 .skills .progressBar{height: 5px;background: #fae1e1;border-radius: 2px;margin: 4px 0 40px;overflow: hidden;}
 .skills .progress{height: 100%;background: #e6686a;border-radius: 2px;transform: translateX(0);transition: all 1s;}
 .skills.offset .progress{transform: translateX(-100%);}
 .skills > ol > li:nth-child(even){float: right;}
 .portfolio{text-align: center;margin-bottom: 100px;}
-.portfolio .swiper-container {width: 888px;height: 666px;margin-top: 30px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);}
-.portfolio .swiper-button-prev {left: auto;right: 100%;background-color: white;width: 44px;height: 66px;border-radius: 10px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);}
-.portfolio .swiper-button-next {left: 100%;right: auto;background-color: white;width: 44px;height: 66px;border-radius: 10px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);}
+.portfolio .swiper-container{width: 888px;height: 666px;margin-top: 30px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);}
+.portfolio .swiper-button-prev{left: auto;right: 100%;background-color: white;width: 44px;height: 66px;border-radius: 10px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);}
+.portfolio .swiper-button-next{left: 100%;right: auto;background-color: white;width: 44px;height: 66px;border-radius: 10px;box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);}
+.messageForm{width: 940px;margin: 30px auto;text-align: center;}
