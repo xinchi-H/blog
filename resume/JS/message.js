@@ -7,17 +7,32 @@ AV.init({
     appKey: APP_KEY
 });
 
+//获取留言
+var query = new AV.Query('Message');
+query.find()
+    .then(function (messages) {
+        let array = messages.map((item) => item.attributes)
+        array.forEach((item) => {
+            let li = document.createElement('li')
+            li.innerText = item.content
+            let messageList = document.querySelector('#messageList')
+            messageList.appendChild(li)
+        })
+    })
+
+//提交留言
 let myForm = document.querySelector('#postMessageForm')
 myForm.addEventListener('submit', function (e) {
     e.preventDefault()
     let content = myForm.querySelector('input[name=content]').value
-    var Message = AV.Object.extend('TestObject');
+    var Message = AV.Object.extend('Message');
     var message = new Message();
     message.set('content', content);
-    message.save().then(function (message) {
-        console.log('保存成功。')
-        console.log(message)
-    })
+    message.save()
+        .then(function (message) {
+            window.location.reload()
+            console.log(message)
+        })
 })
 
 
