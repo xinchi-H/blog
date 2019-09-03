@@ -19,7 +19,7 @@
             var message = new Message();
             message.set('name', name);
             message.set('content', content);
-            message.save()
+            return message.save()
         },
     }
     var controller = {
@@ -49,7 +49,7 @@
             })
         },
         bindEvents: function () {
-            this.form.addEventListener('submit', function (e) {
+            this.form.addEventListener('submit', (e) => {
                 e.preventDefault()
                 this.postMessage()
             })
