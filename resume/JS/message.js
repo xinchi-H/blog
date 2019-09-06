@@ -1,33 +1,84 @@
 !function () {
-    var view = document.querySelector('#message')
-    var model = {
-        //初始化
-        initAV: function () {
-            var APP_ID = 'rJ2w8Y1EAupdFu8z942XAcT3-gzGzoHsz';
-            var APP_KEY = 'aWnQJdrolJJ7uM63RvBR4QYi';
-            AV.init({ appId: APP_ID, appKey: APP_KEY });
+    var view = View('#message')
+    var model = Model({ resourceName: 'Message' })
+    var controller = Controller({
+        messageList: null,
+        form: null,
+        init: function () {
+            this.model.initAV()
+            this.messageList = view.querySelector('#messageList')
+            this.form = view.querySelector('#postMessageForm')
+            this.loadMessages()
         },
-        //获取数据
-        fetch: function () {
-            var query = new AV.Query('Message');
-            return query.find()
+        loadMessages: function () {
+            //获取留言
+            this.model.fetch().then((messages) => {
+                let array = messages.map((item) => item.attributes)
+                array.forEach((item) => {
+                    let li = document.createElement('li')
+                    li.innerText = `${item.name}: ${item.content}`
+                    this.messageList.appendChild(li)
+                })
+            })
+        },
+        bindEvents: function () {
+            this.form.addEventListener('submit', (e) => {
+                e.preventDefault()
+                this.postMessage()
+            })
+        },
+        postMessage: function () {
+            //提交留言
+            let myForm = this.form
+            let name = myForm.querySelector('input[name=name]').value
+            let content = myForm.querySelector('input[name=content]').value
+            this.model.post({ 'name': name, 'content': content }).then((message) => {
+                let li = document.createElement('li')
+                li.innerText = `${message.attributes.name}: ${message.attributes.content}`
+                this.messageList.appendChild(li)
+                myForm.querySelector('input[name=content]').value = ''
+                console.log(message)
+            })
+        },
+    })
 
-        },
-        //发送数据
-        post: function (name, content) {
-            var Message = AV.Object.extend('Message');
-            var message = new Message();
-            message.set('name', name);
-            message.set('content', content);
-            return message.save()
-        },
-    }
+    controller.init(view, model)
+
+}.call()
+
+
+/*
+var model = {
+    //初始化
+    initAV: function () {
+        var APP_ID = 'rJ2w8Y1EAupdFu8z942XAcT3-gzGzoHsz';
+        var APP_KEY = 'aWnQJdrolJJ7uM63RvBR4QYi';
+        AV.init({ appId: APP_ID, appKey: APP_KEY });
+    },
+    //获取数据
+    fetch: function () {
+        var query = new AV.Query('Message');
+        return query.find()
+
+    },
+    //发送数据
+    post: function (name, content) {
+        var Message = AV.Object.extend('Message');
+        var message = new Message();
+        message.set('name', name);
+        message.set('content', content);
+        return message.save()
+    },
+}
+*/
+
+/*
     var controller = {
         view: null,
         model: null,
         messageList: null,
         form: null,
-        init: function (view) {
+        init: function () {
             this.view = view
             this.model = model
             this.messageList = view.querySelector('#messageList')
@@ -59,7 +110,7 @@
             let myForm = this.form
             let name = myForm.querySelector('input[name=name]').value
             let content = myForm.querySelector('input[name=content]').value
-            this.model.post(name, content).then((message) => {
+            this.model.post({ 'name': name, 'content': content }).then((message) => {
                 let li = document.createElement('li')
                 li.innerText = `${message.attributes.name}: ${message.attributes.content}`
                 this.messageList.appendChild(li)
@@ -68,12 +119,7 @@
             })
         },
 
-    }
-
-    controller.init(view, model)
-
-}.call()
-
+    }*/
 
 /*
 //创建TestObject表（引号内的是表名）
